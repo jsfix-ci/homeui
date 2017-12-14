@@ -31,7 +31,7 @@ function widgetDirective(DeviceData, rolesFactory) {
           this.newCellId = null;
           return;
         }
-        this.source.cells.push({ id: newCellId, name: cellName(newCellId) });
+        this.source.cells.push({ id: newCellId, name: cellName(newCellId), extra: {}, type: DeviceData.proxy(newCellId).type});
         this.newCellId = null;
         // XXX the following is a hack, but we can't just set the name
         // in scope because we're using xeditable
@@ -85,6 +85,7 @@ function widgetDirective(DeviceData, rolesFactory) {
       if (this._source()) {
         // clear cell names that are the same as original
         this.source.cells.forEach(cell => {
+          delete cell.type;
           var oldName = cellName(cell.id),
               newName = (cell.name || "").replace(/^s+|\s+$/g, "");
           if (!newName || oldName == newName)
