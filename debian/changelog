@@ -1,3 +1,9 @@
+wb-mqtt-homeui (2.29.0) stable; urgency=medium
+
+  * Rename Wi-Fi AP/Client to Wi-Fi 1/2 in dashboards (wlan0 is not always AP)
+
+ -- Nikita Maslov <nikita.maslov@wirenboard.ru>  Mon, 24 Jan 2022 17:58:45 +0300
+
 wb-mqtt-homeui (2.28.0) stable; urgency=medium
 
   * "Collapse all items" button is added to array editor on "Configs" page
