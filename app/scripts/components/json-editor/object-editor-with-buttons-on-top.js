@@ -8,6 +8,7 @@ function makeObjectEditorWithButtonsOnTop () {
     return class extends JSONEditor.defaults.editors["object"] {
 
         build () {
+            console.log('Editor: object-editor-with-buttons-on-top')
             super.build()
             this.title_controls = this.theme.getButtonHolder()
             this.title_controls.classList.add('je-object__controls')

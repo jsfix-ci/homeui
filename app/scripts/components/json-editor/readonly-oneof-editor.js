@@ -7,6 +7,7 @@ import { JSONEditor } from "../../../3rdparty/jsoneditor";
 function makeReadonlyOneOfEditor () {
     return class extends JSONEditor.defaults.editors["multiple"] {
         build() {
+            console.log('Editor: readonly-oneof-editor')
             super.build();
             this.switcher.style.display = 'none';
             this.header.style.display = 'none';

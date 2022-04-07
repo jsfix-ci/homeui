@@ -13,6 +13,7 @@ import { JSONEditor } from "../../../3rdparty/jsoneditor";
 function makeIntegerEditorWithSpecialValue () {
     return class extends JSONEditor.defaults.editors["integer"] {
         build() {
+            console.log('Editor: integer-editor-with-special-value')
             super.build();
             if (this.input) {
                 this.input.setAttribute('size', this.input.getAttribute('placeholder').length);

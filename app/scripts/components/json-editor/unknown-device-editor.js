@@ -10,6 +10,7 @@ function makeUnknownDeviceEditor () {
         }
 
         build () {
+          console.log('Editor: unknown-device-editor')
           this.error_holder = document.createElement('div')
           this.error_holder.appendChild(this.theme.getErrorMessage(this.translate('unknown_device_warning')))
           this.container.appendChild(this.error_holder)

@@ -6,6 +6,7 @@ function makeSelectWithHiddenItems () {
     return class extends JSONEditor.defaults.editors["select"] {
 
         build () {
+            console.log('Editor: select-with-hidden-items')
             super.build()
 
             var options = this.switcher_options = this.theme.getSwitcherOptions(this.input)

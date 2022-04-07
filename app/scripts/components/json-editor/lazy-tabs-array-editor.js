@@ -25,7 +25,7 @@ function makeLazyTabsArrayEditor () {
         enable () {
             if (!this.always_disabled) {
                 this.setAvailability(this, false)
-            
+
                 if (this.rows) {
                     this.rows.forEach(row => {
                     if (row.has_editor) {
@@ -41,7 +41,7 @@ function makeLazyTabsArrayEditor () {
         disable (alwaysDisabled) {
             if (alwaysDisabled) this.always_disabled = true
             this.setAvailability(this, true)
-        
+
             if (this.rows) {
                 this.rows.forEach(row => {
                     if (row.has_editor) {
@@ -59,6 +59,7 @@ function makeLazyTabsArrayEditor () {
         }
 
         build () {
+            console.log('Editor: lazzy-tabs-array-editor')
             this.schema.format = 'tabs'
             super.build()
         }
@@ -126,7 +127,7 @@ function makeLazyTabsArrayEditor () {
                 this.rows[j] = null
             }
             this.rows = this.rows.slice(0, value.length)
-            
+
             /* Set the active tab */
             const row = this.rows.find(row => row.tab === this.active_tab)
             let newActiveTab = typeof row !== 'undefined' ? row.tab : null
@@ -140,7 +141,7 @@ function makeLazyTabsArrayEditor () {
 
         refreshValue (force) {
             const oldi = this.value ? this.value.length : 0
-            
+
             /* Get the value for this editor */
             this.value = (this.valueToSet || []).map(i => i);
             this.rows.forEach((row, i) => {
@@ -152,7 +153,7 @@ function makeLazyTabsArrayEditor () {
             if (oldi !== this.value.length || force) {
                 /* If we currently have minItems items in the array */
                 const minItems = this.schema.minItems && this.schema.minItems >= this.rows.length
-        
+
                 this.rows.forEach((editor, i) => {
                 if (editor.has_editor) {
                     /* Hide the move down button for the last row */
@@ -160,7 +161,7 @@ function makeLazyTabsArrayEditor () {
                         const display = (i !== this.rows.length - 1)
                         this.setVisibility(editor.movedown_button, display)
                     }
-            
+
                     /* Hide the delete button if we have minItems items */
                     if (editor.delete_button) {
                         this.setVisibility(editor.delete_button, !minItems)
@@ -306,7 +307,7 @@ function makeLazyTabsArrayEditor () {
                 this.onChange(true)
                 this.jsoneditor.trigger('moveRow', this.rows[newIndex])
             })
-        
+
             if (holder) {
                 holder.appendChild(button)
             }
@@ -356,7 +357,7 @@ function makeLazyTabsArrayEditor () {
                 this.onChange(true)
                 this.jsoneditor.trigger('deleteRow', editor)
             })
-        
+
             if (holder) {
                 holder.appendChild(button)
             }

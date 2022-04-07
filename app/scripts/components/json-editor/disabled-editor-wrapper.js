@@ -3,6 +3,7 @@
 function makeDisabledEditorWrapper (Base) {
     return class extends Base {
         build () {
+            console.log('Editor: disabled-editor-wrapper')
             super.build()
             this.disabledEditor = this.theme.getFormInputField(this.input_type)
             this.disabledEditor.style.display = 'none'

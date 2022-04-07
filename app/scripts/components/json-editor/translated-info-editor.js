@@ -9,6 +9,7 @@ function makeTranslatedInfoEditor () {
         }
 
         build () {
+          console.log('Editor: translated-info-editor')
           this.input = this.theme.getFormInputField("text")
           this.input.disabled = true
           this.container.appendChild(this.input)

@@ -16,6 +16,7 @@ function makeCollapsibleMultipleEditor () {
             if (!this.schema.options || !this.schema.options.disable_collapse) {
                 this.collapsed = true
             }
+            console.log('Editor: collapsible-multiple-editor')
 
             super.build()
 
@@ -82,7 +83,7 @@ function makeCollapsibleMultipleEditor () {
             this.value = angular.extend({}, val)
             this.valueToSet = angular.extend({}, val)
             /* Determine type by getting the first one that validates */
-        
+
             const prevType = this.type
             /* find the best match one */
             let fitTestVal = {

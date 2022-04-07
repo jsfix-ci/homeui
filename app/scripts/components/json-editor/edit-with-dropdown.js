@@ -17,7 +17,7 @@ function makeEditWithDropdownEditor () {
           if (!this.input) return
           this.input.setAttribute('name', this.formname)
         }
-      
+
         unregister () {
           super.unregister()
           if (!this.input) return
@@ -25,6 +25,7 @@ function makeEditWithDropdownEditor () {
         }
 
         build () {
+          console.log('Editor: edit-with-dropdown')
           if (!this.options.compact) {
             this.label = this.theme.getFormInputLabel(this.getTitle())
           }
@@ -83,7 +84,7 @@ function makeEditWithDropdownEditor () {
           if (typeof value !== 'undefined' && typeof value !== 'string') {
             value = `${value}`
           }
-      
+
           if (this.value === value) {
             return
           }
@@ -129,7 +130,7 @@ function makeEditWithDropdownEditor () {
             return messages
           }
           const messages = errors.reduce(addMessage, [])
-      
+
           if (messages.length) {
             this.theme.addInputError(this.input, `${messages.join('. ')}.`)
           } else {

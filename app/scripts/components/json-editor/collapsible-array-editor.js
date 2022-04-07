@@ -10,6 +10,7 @@ function makeCollapsibleArrayEditor () {
   JSONEditor.defaults.languages.en.collapse_all = 'Collapse all items'
   return class extends JSONEditor.defaults.editors["array"] {
         build () {
+            console.log('Editor: collapsible-array-editor')
             super.build()
             this.collapse_all_button = this._createCollapseAllButton()
         }
@@ -78,11 +79,11 @@ function makeCollapsibleArrayEditor () {
           button.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
-      
+
             if (!this.askConfirmation()) {
               return false
             }
-      
+
             const i = e.currentTarget.getAttribute('data-i') * 1
             const collapsedState = this.rows.map(ed => ed.collapsed).filter((ed, j) => j !== i)
             const newval = this.getValue().filter((row, j) => j !== i)
@@ -104,7 +105,7 @@ function makeCollapsibleArrayEditor () {
             this.onChange(true)
             this.jsoneditor.trigger('deleteRow', editor)
           })
-      
+
           if (holder) {
             holder.appendChild(button)
           }
