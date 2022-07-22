@@ -1,4 +1,4 @@
-wb-mqtt-homeui (2.42.0) stable; urgency=medium
+wb-mqtt-homeui (2.43.0) stable; urgency=medium
 
   * Slave id is preserved after device type switching
 
